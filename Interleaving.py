@@ -10,15 +10,14 @@ def AllInter(a,b):
     positionB, *subListB = b
     return [[positionA] + subL for subL in AllInter(subListA, b)] + [[positionB] + subL for subL in AllInter(subListB, a)]
 
-def ParallelInter(a,b):
-    interleaving =[]
-    a.reverse()
-    b.reverse()
-    while a and b :
-        interleaving.append(a.pop())
-        interleaving.append(b.pop())
+def ParallelInter(a, b):
+    interleaving = []
+    for i in range(len(a) + len(b)):
+        if len(a) > i:
+            interleaving.append(a[i])
+        if len(b) > i:
+            interleaving.append(b[i])
     print (interleaving)
-
 
 print("Parallel-Inter: ")
 ParallelInter([1,2],[3,4])
